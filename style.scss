@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: #191a24;
+}
+
+img {
+  width: 100%;
+  cursor: zoom-in;
+}
+
+.container {
+  max-width: 80%;
+  margin-inline: auto;
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+// MODAL
+.modal-container {
+  background-color: rgba($color: #000000, $alpha: 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  color: #fff;
+  z-index: 1000;
+  cursor: zoom-out;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in;
+
+  .caption {
+    color: #fff;
+    font-size: 1.3rem;
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -7%);
+  }
+}
+
+.modal-container.show {
+  pointer-events: all;
+  opacity: 1;
+}
+
+// Full image
+.full-img {
+  position: absolute;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: transform 0.3s ease-out;
+}
+
+.full-img.open {
+  transform: translate(-50%, -50%) scale(1);
+}
